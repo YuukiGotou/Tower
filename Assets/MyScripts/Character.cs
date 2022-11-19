@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    [SerializeField]
     protected float speed; // 1周期のフレーム数
     private float timer; // フレームカウント用
     protected bool flying; // 空判定

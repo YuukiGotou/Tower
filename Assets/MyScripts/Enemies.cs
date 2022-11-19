@@ -4,6 +4,7 @@ using UnityEngine;
 
 class Enemies : Character
 {
+    [SerializeField]
     protected int HP; // ‘Ì—Í ”CˆÓ‚Åİ’è
     protected int Money; // —‚Æ‚·‹àŠz ”CˆÓ‚Åİ’è
     private Vector2 start; // ˆÚ“®ŠJn’n“_
@@ -51,5 +52,11 @@ class Enemies : Character
     {
         Vector2 vec = new Vector2(x, y);
         return Physics2D.OverlapPoint(start + vec, map);
+    }
+
+    public void StatusReset(int h, float s)
+    {
+        HP = h;
+        speed = s;
     }
 }

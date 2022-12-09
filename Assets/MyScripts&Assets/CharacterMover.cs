@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterMover : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class CharacterMover : MonoBehaviour
     protected float timer = 0;
 
     protected GameManager gm_method;
+    protected GameObject sliderUI;
+    protected SliderUI sUI_method;
 
     protected virtual void Update()
     {
@@ -35,8 +38,8 @@ public class CharacterMover : MonoBehaviour
         gm_method.MoneyModification(money);
     }
 
-    protected void SelectSound(string sound_name)
+    protected void SelectSound(AudioClip audio_name)
     {
-        gm_method.SelectSound(sound_name);
+        gm_method.PlaySound(audio_name);
     }
 }

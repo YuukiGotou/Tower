@@ -9,10 +9,15 @@ public class Enemy : CharacterMover
     [SerializeField]
     private int EnemyMoney; // óéÇ∆Ç∑Ç®ã‡ îCà”Ç≈ê›íË
 
+    [SerializeField]
+    private AudioClip intrusion;
+    [SerializeField]
+    private AudioClip death;
+
     private EnemyManager em_method;
     private LayerMask map_collision;
 
-    public void StartUP(Vector2 direction, GameManager gm_method, EnemyManager em_method, LayerMask map_collider)
+    public void StartUP(Vector2 direction, GameManager gm_method, EnemyManager em_method, LayerMask map_collider,GameObject slider)
     {
         start = transform.position;
         this.direction = direction;
@@ -21,12 +26,17 @@ public class Enemy : CharacterMover
         this.em_method = em_method;
         this.gm_method = gm_method;
         this.map_collision = map_collider;
+
+        sliderUI = slider;
+        sUI_method = sliderUI.GetComponent<SliderUI>();
+        sUI_method.SetMaxValue(EnemyHP);
     }
 
     protected override void Update()
     {
         base.Update();
         transform.position = Vector2.Lerp(start, target, timer / speed);
+        sliderUI.transform.position = transform.position + new Vector3(0, 0.4f, 0);
     }
 
     protected override void FixedUpdate()
@@ -59,7 +69,8 @@ public class Enemy : CharacterMover
     public void Intrusion()
     {
         EnemyMoney = 0;
-        SelectSound("Intrusion");
+        SelectSound(intrusion);
+        gm_method.Damaged();
     }
 
     public bool EnemyHPCheck(int atk)
@@ -72,15 +83,20 @@ public class Enemy : CharacterMover
         EnemyHP -= atk;
         if(EnemyHP <= 0)
         {
-            SelectSound("Death");
+            SelectSound(death);
             Destroy(gameObject);
         }
+        sliderUI.GetComponent<SliderUI>().ValueSet(EnemyHP);
     }
 
     private void OnDestroy()
     {
-        em_method.DestroyEnemy();
-        moneyModification(EnemyMoney);
+        if (!gm_method.HPZeroCheck())
+        {
+            Destroy(sliderUI);
+            em_method.DestroyEnemy();
+            moneyModification(EnemyMoney);
+        }
     }
 
     /// <summary>

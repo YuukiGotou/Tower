@@ -140,4 +140,4 @@ MonoBehaviour:
   cost: 5
   atk: 3
   atkarea: 2
-  attackType: 0
+  attackType: 1

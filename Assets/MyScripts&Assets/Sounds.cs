@@ -13,16 +13,8 @@ public class Sounds : MonoBehaviour
         audiosource = GetComponent<AudioSource>();
     }
 
-    public void SoundPlay(string s)
+    public void SoundPlay(AudioClip audio_name)
     {
-        switch (s)
-        {
-            case "Death":
-                audiosource.PlayOneShot(death);
-                break;
-            case "Intrusion":
-                audiosource.PlayOneShot(intrusion);
-                break;
-        }
+        audiosource.PlayOneShot(audio_name);
     }
 }

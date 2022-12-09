@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +16,11 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject canvas; // スタートボタンのUI登録用
 
+    [SerializeField]
+    private GameObject HPText;
+    [SerializeField]
+    private GameObject MoneyText;
+
     public int PlayerMoney = 10;
     public int PlayerHP = 3;
 
@@ -22,6 +28,8 @@ public class GameManager : MonoBehaviour
     {
         SetStartButtonUI();
         sounds = mainCamera.GetComponent<Sounds>();
+        HPText.GetComponent<StatusText>().SetStatus(PlayerHP);
+        MoneyText.GetComponent<StatusText>().SetStatus(PlayerMoney);
     }
 
     private void Update()
@@ -42,13 +50,13 @@ public class GameManager : MonoBehaviour
     {
         startbutton = Instantiate(startButton, canvas.transform);
         RectTransform rect = startbutton.GetComponent<RectTransform>();
-        rect.localPosition = new Vector3(-295, -150, 0);
+        rect.localPosition = new Vector3(-290, -150, 0);
         startbutton.GetComponent<UI_StartButton>().SetManager(gameObject);
     }
 
-    public void SelectSound(string sound_name)
+    public void PlaySound(AudioClip audio_name)
     {
-        sounds.SoundPlay(sound_name);
+        sounds.SoundPlay(audio_name);
     }
 
     public bool ProceedCheck()
@@ -81,6 +89,7 @@ public class GameManager : MonoBehaviour
     public void MoneyModification(int money)
     {
         PlayerMoney += money;
+        MoneyText.GetComponent<StatusText>().SetStatus(PlayerMoney);
     }
 
     public void Damaged()
@@ -90,16 +99,22 @@ public class GameManager : MonoBehaviour
         {
             SceneChange_GameOver();
         }
+        HPText.GetComponent<StatusText>().SetStatus(PlayerHP);
+    }
+
+    public bool HPZeroCheck()
+    {
+        return PlayerHP == 0;
     }
 
     public void SceneChange_GameClear()
     {
-        // クリア画面に遷移
+        SceneManager.LoadScene("StageClear");
     }
 
     public void SceneChange_GameOver()
     {
-        // ゲームオーバー画面に遷移
+        SceneManager.LoadScene("GAMEOVER");
     }
 
 

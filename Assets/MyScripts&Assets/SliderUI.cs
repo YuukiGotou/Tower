@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SliderUI : CharacterMover
+public class SliderUI : MonoBehaviour
 {
-    public void StartUP(float speed)
+    public void SetMaxValue(float value)
     {
-
+        GetComponent<Slider>().maxValue = value;
+        GetComponent<Slider>().value = value;
     }
-    protected override void Update()
+    public void ValueSet(float value)
     {
-        base.Update();
-        this.GetComponent<Slider>().value = speed;
+        this.GetComponent<Slider>().value = value;
     }
 }

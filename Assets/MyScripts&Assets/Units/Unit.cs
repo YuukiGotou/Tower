@@ -18,15 +18,24 @@ public class Unit : CharacterMover
     private float atkarea;
     [SerializeField]
     private AttackType attackType;
+    private GameObject attackcircle;
+    private GameObject obj;
 
     private List<GameObject> targetEnemy;
 
-    public void StartUP(GameManager gm_method)
+    public void StartUP(GameManager gm_method, GameObject sliderUI, GameObject atkCircle)
     {
         this.gm_method = gm_method;
+        this.sliderUI = sliderUI;
+
         targetEnemy = new List<GameObject>();
         targetEnemy.Add(gameObject);
         GetComponent<CircleCollider2D>().radius = atkarea;
+
+        sUI_method = sliderUI.GetComponent<SliderUI>();
+        sUI_method.SetMaxValue(speed);
+        attackcircle = atkCircle;
+        attackcircle.transform.localScale = new Vector3(atkarea * 2, atkarea * 2, 1);
     }
 
     protected override void Update()
@@ -42,6 +51,7 @@ public class Unit : CharacterMover
         {
             timer = speed;
         }
+        sUI_method.ValueSet(timer);
     }
 
     protected override void FixedUpdate()
@@ -99,5 +109,15 @@ public class Unit : CharacterMover
             targetEnemy.Remove(targetEnemy[n]);
         }
         t_method.EnemyDamage(atk);
+    }
+
+    private void OnMouseEnter()
+    {
+        obj = Instantiate(attackcircle, transform.position, Quaternion.identity);
+    }
+
+    private void OnMouseExit()
+    {
+        Destroy(obj);
     }
 }

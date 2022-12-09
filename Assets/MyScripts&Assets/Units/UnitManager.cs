@@ -21,6 +21,9 @@ public class UnitManager : MonoBehaviour
     [SerializeField]
     private GameObject unitUI_prefab; // UnitUIの生成用オブジェクト
     [SerializeField]
+    private GameObject sliderUI; // ゲージ表示用オブジェクト
+
+    [SerializeField]
     private GameObject Redsquare_prefab; // 強調表示用
     [SerializeField]
     private GameObject Areaimage_prefab; // 攻撃範囲表示用
@@ -102,7 +105,11 @@ public class UnitManager : MonoBehaviour
     {
         gm_method.MoneyModification(-selection_cost);
         GameObject obj = Instantiate(Units[selection_number], position, Quaternion.identity);
-        obj.GetComponent<Unit>().StartUP(gm_method);
+
+        Vector3 slider_vec = position + new Vector3(0, -0.45f, 0);
+        GameObject obj2 = Instantiate(sliderUI, canvas_transform);
+        obj2.transform.position = slider_vec;
+        obj.GetComponent<Unit>().StartUP(gm_method, obj2, Areaimage_prefab);
     }
 
     private void DestroyUI()

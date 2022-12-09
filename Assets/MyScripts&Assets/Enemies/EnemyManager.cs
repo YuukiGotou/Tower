@@ -20,6 +20,16 @@ public class EnemyManager : MonoBehaviour
     private GameManager gm_method; // ゲームの進行状況の管理
 
     [SerializeField]
+    private GameObject canvas;
+    private Transform canvas_transform;
+    [SerializeField]
+    private GameObject sliderUI; // ゲージ表示用オブジェクト
+
+    [SerializeField]
+    private GameObject waveText; // テキスト表示用
+    private StatusText2 wt_method;
+
+    [SerializeField]
     private LayerMask map_collision;
 
     private void Start()
@@ -27,6 +37,10 @@ public class EnemyManager : MonoBehaviour
         spawnplace = spawnPlace.transform.position;
         gm_method = gameManager.GetComponent<GameManager>();
         startdirection = spawnPlace.GetComponent<StartDirection>().GetStartDirection();
+        canvas_transform = canvas.GetComponent<Transform>();
+        MaxWave = waveData.Length;
+        wt_method = waveText.GetComponent<StatusText2>();
+        wt_method.SetWave(MaxWave, 1);
     }
 
     private void FixedUpdate()
@@ -65,7 +79,9 @@ public class EnemyManager : MonoBehaviour
     private void Spawn()
     {
         GameObject obj = Instantiate(spawnEnemy, spawnplace, Quaternion.identity, gameObject.transform);
-        obj.GetComponent<Enemy>().StartUP(startdirection, gm_method, gameObject.GetComponent<EnemyManager>(), map_collision);
+        Vector3 vec = spawnplace + new Vector3(0, 0.4f, 0);
+        GameObject obj2 = Instantiate(sliderUI, vec, Quaternion.identity, canvas_transform);
+        obj.GetComponent<Enemy>().StartUP(startdirection, gm_method, gameObject.GetComponent<EnemyManager>(), map_collision, obj2);
         stand_by_enemy--;
         timer = 0;
     }
@@ -76,8 +92,17 @@ public class EnemyManager : MonoBehaviour
         if (rest_enemy == 0)
         {
             gm_method.ProceedChange();
-            gm_method.SetStartButtonUI();
-            proceed = false;
+            int wave = gm_method.WaveCheck() + 1;
+            if(wave == MaxWave && !gm_method.HPZeroCheck())
+            {
+                gm_method.SceneChange_GameClear();
+            }
+            else
+            {
+                gm_method.SetStartButtonUI();
+                wt_method.SetNowWave(wave + 2);
+                proceed = false;
+            }
         }
     }
 
@@ -110,6 +135,11 @@ public class EnemyManager : MonoBehaviour
     /// スタート時の敵の進行方向
     /// </summary>
     private Vector2 startdirection;
+    
+    /// <summary>
+    /// wave最大数
+    /// </summary>
+    private int MaxWave;
 }
 
 [System.Serializable]

@@ -1396,7 +1396,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Units:
-  - {fileID: 284237588652807905, guid: ce03fcc319c3ca045806d1e3b546f8ed, type: 3}
+  - unit: {fileID: 284237588652807905, guid: ce03fcc319c3ca045806d1e3b546f8ed, type: 3}
+    effect: {fileID: 7494456166425548274, guid: 6836f5eaa96f845c4ac0909f84272556, type: 3}
   canvas: {fileID: 473178427}
   gamemanager: {fileID: 1297938734}
   mapcolor: {fileID: 1180330424}

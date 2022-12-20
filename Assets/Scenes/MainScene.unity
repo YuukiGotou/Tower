@@ -428,10 +428,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyData:
   - {fileID: 8190573459537997224, guid: b7e9057ad0699bf4183b036143ad861c, type: 3}
+  - {fileID: 8190573459537997224, guid: a713d551dc9031342a052c1dc79c8217, type: 3}
   waveData:
   - TotalEnemies: 5
     SpawnInterval: 20
     EnemyType: 0
+  - TotalEnemies: 8
+    SpawnInterval: 15
+    EnemyType: 1
   spawnPlace: {fileID: 1366481003}
   gameManager: {fileID: 1297938734}
   canvas: {fileID: 473178427}
@@ -1396,13 +1400,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Units:
+  - unit: {fileID: 284237588652807905, guid: d04dc6cf0e92ecf49900f5d3deb56ed6, type: 3}
+    effect: {fileID: 7375762350054883196, guid: e0a77c4fca4528e45824054889bb24ed, type: 3}
   - unit: {fileID: 284237588652807905, guid: ce03fcc319c3ca045806d1e3b546f8ed, type: 3}
     effect: {fileID: 7494456166425548274, guid: 6836f5eaa96f845c4ac0909f84272556, type: 3}
+  - unit: {fileID: 284237588652807905, guid: 224f43435ef432548a9cae43da70d031, type: 3}
+    effect: {fileID: 100004, guid: a89abc0d2591545288f4c041059ae633, type: 3}
   canvas: {fileID: 473178427}
   gamemanager: {fileID: 1297938734}
   mapcolor: {fileID: 1180330424}
   unitUI_prefab: {fileID: 4852320723769936740, guid: de9a801be899243468b3d6322422c212, type: 3}
   sliderUI: {fileID: 947133860033753725, guid: 9d3aa169d1c652d4c891bebc8f6d02e5, type: 3}
+  WindowUI: {fileID: 4824972000016969770, guid: f3c67d1e046eb1843aa560adb3e59298, type: 3}
   Redsquare_prefab: {fileID: 5159380020880276882, guid: a9e59e382241e634c9f949e8fb66a455, type: 3}
   Areaimage_prefab: {fileID: 7401107299690821191, guid: d549737628fdad54183754f6c087edf9, type: 3}
 --- !u!1 &1180330424

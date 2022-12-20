@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7213268359358585044}
   - component: {fileID: 320280016185386081}
   m_Layer: 0
-  m_Name: Maze
+  m_Name: Fighter
   m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2586439, guid: ebee7661d29df364ba9b78f59630c9bc, type: 3}
+  m_Sprite: {fileID: -442394289, guid: b4a2dffd65401d048af503c95a4cb003, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -136,8 +136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 772909999b5388e4d9d38e94ac6a4888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 600
-  cost: 8
-  atk: 10
-  atkarea: 3
+  speed: 60
+  cost: 12
+  atk: 3
+  atkarea: 1
   attackType: 0

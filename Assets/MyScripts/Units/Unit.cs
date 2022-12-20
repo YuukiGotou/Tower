@@ -87,7 +87,15 @@ public class Unit : CharacterMover
     {
         return cost;
     }
-
+    public int GetAtk()
+    {
+        return atk;
+    }
+    public int GetSpeed()
+    {
+        float n = 1 / speed * 1000;
+        return (int)n;
+    }
     public float GetAttackArea()
     {
         return atkarea;

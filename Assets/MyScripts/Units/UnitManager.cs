@@ -22,6 +22,8 @@ public class UnitManager : MonoBehaviour
     private GameObject unitUI_prefab; // UnitUIの生成用オブジェクト
     [SerializeField]
     private GameObject sliderUI; // ゲージ表示用オブジェクト
+    [SerializeField]
+    private GameObject WindowUI; // ゲージ表示用オブジェクト
 
     [SerializeField]
     private GameObject Redsquare_prefab; // 強調表示用
@@ -41,7 +43,7 @@ public class UnitManager : MonoBehaviour
             RectTransform rect = unitUISet.GetComponent<RectTransform>();
             rect.localPosition = new Vector3(-210 + (80 * i), -150, 0);
             unitUISet.GetComponent<Image>().sprite = sprite;
-            unitUISet.GetComponent<UnitUI>().InputData(gameObject, i);
+            unitUISet.GetComponent<UnitUI>().InputData(gameObject, WindowUI, i, canvas_transform);
         }
     }
 
@@ -69,7 +71,7 @@ public class UnitManager : MonoBehaviour
         {
             DestroyUI();
         }
-
+        selection_number = unitnumber;
         redsquare = Instantiate(Redsquare_prefab, position, Quaternion.identity, this.transform);
 
         target = GetPosition();
@@ -122,6 +124,19 @@ public class UnitManager : MonoBehaviour
     public bool ExistingCheck()
     {
         return existing;
+    }
+
+    public int GetAtk(int num)
+    {
+        return Units[num].unit.GetComponent<Unit>().GetAtk();
+    }
+    public int GetCost(int num)
+    {
+        return Units[num].unit.GetComponent<Unit>().GetCost();
+    }
+    public int GetSpeed(int num)
+    {
+        return Units[num].unit.GetComponent<Unit>().GetSpeed();
     }
 
     /// <summary>

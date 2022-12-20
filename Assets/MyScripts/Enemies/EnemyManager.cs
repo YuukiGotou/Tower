@@ -100,7 +100,7 @@ public class EnemyManager : MonoBehaviour
             else
             {
                 gm_method.SetStartButtonUI();
-                wt_method.SetNowWave(wave + 2);
+                wt_method.SetNowWave(wave + 1);
                 proceed = false;
             }
         }

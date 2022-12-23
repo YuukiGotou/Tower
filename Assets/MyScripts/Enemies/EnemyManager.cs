@@ -30,6 +30,9 @@ public class EnemyManager : MonoBehaviour
     private StatusText2 wt_method;
 
     [SerializeField]
+    private AudioClip appear;
+
+    [SerializeField]
     private LayerMask map_collision;
 
     private void Start()
@@ -73,6 +76,7 @@ public class EnemyManager : MonoBehaviour
         rest_enemy = waveData[wave].TotalEnemies;
         spawn_time = waveData[wave].SpawnInterval;
         timer = -60;
+        gm_method.PlaySound(appear);
         proceed = true;
     }
 

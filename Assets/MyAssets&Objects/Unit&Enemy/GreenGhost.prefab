@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3027591155432380845}
   - component: {fileID: -6256122182619114473}
   m_Layer: 0
-  m_Name: BlackGhost
+  m_Name: GreenGhost
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1069928709, guid: d37820b7505ca8b47a4f90728f264655, type: 3}
+  m_Sprite: {fileID: 781829781, guid: 5c9a0f7684857ed41ac7b39b67de16bf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 781400962f3956143b2bc39fabfaf72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 300
-  EnemyHP: 20
-  EnemyMoney: 6
+  speed: 200
+  EnemyHP: 100
+  EnemyMoney: 14
   intrusion: {fileID: 8300000, guid: d371592f5f7b5ba4b86cb711fa76f35f, type: 3}
   death: {fileID: 8300000, guid: 2a44ad38a6eaffe46a8bc6081ffceb6d, type: 3}
 --- !u!58 &3027591155432380845

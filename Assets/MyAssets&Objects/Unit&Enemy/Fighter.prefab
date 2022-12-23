@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 60
-  cost: 12
-  atk: 3
-  atkarea: 1
+  cost: 24
+  atk: 2
+  atkarea: 0.8
   attackType: 0

@@ -93,7 +93,7 @@ public class Unit : CharacterMover
     }
     public int GetSpeed()
     {
-        float n = 1 / speed * 1000;
+        float n = 1 / speed * 3000;
         return (int)n;
     }
     public float GetAttackArea()

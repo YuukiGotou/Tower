@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
             if (!ProceedCheck())
             {
                 interval++;
-                if(interval == 1800)
+                if(interval == 9000)
                 {
                     WaveChange();
                 }

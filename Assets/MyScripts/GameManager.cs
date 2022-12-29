@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
+    public int StageNumber;
+
+    [SerializeField]
     private GameObject startButton;
     private GameObject startbutton; // スタートボタンの保持用
 
@@ -109,6 +112,7 @@ public class GameManager : MonoBehaviour
 
     public void SceneChange_GameClear()
     {
+        ClearChecker.playing[StageNumber] = true;
         SceneManager.LoadScene("StageClear");
     }
 

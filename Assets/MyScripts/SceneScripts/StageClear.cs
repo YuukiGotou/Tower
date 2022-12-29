@@ -20,7 +20,7 @@ public class StageClear : MonoBehaviour
     void Update()
     {
         time++;
-        if (!check && time > 600)
+        if (!check && time > 100)
         {
             Instantiate(pressText, canvas_transform);
             check = true;

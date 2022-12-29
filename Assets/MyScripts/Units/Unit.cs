@@ -20,7 +20,6 @@ public class Unit : CharacterMover
     [SerializeField]
     private AttackType attackType;
     private GameObject attackcircle;
-    private GameObject obj;
 
     private List<GameObject> targetEnemy;
 
@@ -122,15 +121,5 @@ public class Unit : CharacterMover
             targetEnemy.Remove(targetEnemy[n]);
         }
         t_method.EnemyDamage(atk);
-    }
-
-    private void OnMouseEnter()
-    {
-        obj = Instantiate(attackcircle, transform.position, Quaternion.identity);
-    }
-
-    private void OnMouseExit()
-    {
-        Destroy(obj);
     }
 }

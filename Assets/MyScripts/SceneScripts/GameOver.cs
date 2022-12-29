@@ -24,7 +24,7 @@ public class GameOver : MonoBehaviour
         count++;
         if (count % 2 == 0)
         {
-            if (time < 180)
+            if (time < 60)
             {
                 if (transform.position != Vector3.zero)
                 {
@@ -44,7 +44,7 @@ public class GameOver : MonoBehaviour
             count = 0;
         }
 
-        if(!check && time > 300)
+        if(!check && time > 100)
         {
             Instantiate(pressText, canvas_transform);
             check = true;

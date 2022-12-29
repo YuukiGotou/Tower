@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 781400962f3956143b2bc39fabfaf72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 300
-  EnemyHP: 20
-  EnemyMoney: 6
+  speed: 100
+  EnemyHP: 15
+  EnemyMoney: 4
   intrusion: {fileID: 8300000, guid: d371592f5f7b5ba4b86cb711fa76f35f, type: 3}
   death: {fileID: 8300000, guid: 2a44ad38a6eaffe46a8bc6081ffceb6d, type: 3}
 --- !u!58 &3027591155432380845

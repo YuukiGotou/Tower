@@ -12,7 +12,7 @@ public class GameOver2 : MonoBehaviour
     void Update()
     {
         time++;
-        if(time > 240)
+        if(time > 120)
         {
             check = !check;
             gameObject.GetComponent<TextMeshProUGUI>().enabled = check;

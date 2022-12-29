@@ -41,7 +41,7 @@ public class UnitManager : MonoBehaviour
             Sprite sprite = Units[i].unit.GetComponent<SpriteRenderer>().sprite;
             GameObject unitUISet = Instantiate(unitUI_prefab, canvas_transform);
             RectTransform rect = unitUISet.GetComponent<RectTransform>();
-            rect.localPosition = new Vector3(-210 + (80 * i), -150, 0);
+            rect.localPosition = new Vector3(-190 + (85 * i), -150, 0);
             unitUISet.GetComponent<Image>().sprite = sprite;
             unitUISet.GetComponent<UnitUI>().InputData(gameObject, WindowUI, i, canvas_transform);
         }

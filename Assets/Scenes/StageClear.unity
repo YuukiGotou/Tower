@@ -473,7 +473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 265c1050692f89e43891dfced6be4f19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pressText: {fileID: 8376631675821133686, guid: 590ca55516ec2934f9dfb57c55cd3a98, type: 3}
+  pressText: {fileID: 8376631675821133686, guid: afa18320cebd40c4e8b0b3f298d2fcbb, type: 3}
   canvas: {fileID: 1504837725}
 --- !u!1 &1504837725
 GameObject:

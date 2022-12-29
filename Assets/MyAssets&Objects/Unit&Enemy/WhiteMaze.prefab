@@ -136,8 +136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 772909999b5388e4d9d38e94ac6a4888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2000
-  cost: 50
-  atk: 30
+  speed: 375
+  cost: 76
+  atk: 80
   atkarea: 4
   attackType: 1
